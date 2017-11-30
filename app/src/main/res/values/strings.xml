@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sms To Irc</string>
+    <string name="server_text">Server</string>
+    <string name="launch_text">Start</string>
+    <string name="pseudo_text"></string>
+    <string name="pseudo_send_text">Pseudo vers où les sms doivent être envoyés</string>
+    <string name="host_text">irc.root-me.org</string>
+    <string name="port_text">6697</string>
+    <string name="checkbox_text">ssl ?</string>
 </resources>

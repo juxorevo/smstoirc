@@ -89,7 +89,9 @@ public class SmsReceiver  extends BroadcastReceiver {
                                     phoneNumber);
             t.start();
         }else{
-            t.sendString("PRIVMSG Juxo " + msg);
+            t.sendIRC("PRIVMSG " + MainActivity.getPseudoTo() + " " + msg
+                        .replaceAll("(\r\n)+", " ")
+                        .replaceAll("\n+", " "));
         }
     }
 }

@@ -3,201 +3,123 @@
 
     <item
         is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/c5c46078d3ecc40205ae1b73ce69f229950451c5/output/jars/classes.jar"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-alpha1.aar\55a0ca7466a2ba20cb92c49e282e30ae\jars\classes.jar"
         jumboMode="false"
+        min-sdk-version="15"
         optimize="true"
-        revision="25.0.1"
-        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_fac3006371273a1b5d8f2dd0d92a59149a539ffe.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/4e2b46a803c4aaeed0d241f4dd886503530284c4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_67bd9903776a644581fcd3b26ab4141f31e23f5b.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/4e2b46a803c4aaeed0d241f4dd886503530284c4/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_67bd9903776a644581fcd3b26ab4141f31e23f5b/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/b8d2d657b87cc05845a4a170162a872b6f293f4f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_8c96d8b43ac064c8a56757cbadba4b288fed8b67.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/b8d2d657b87cc05845a4a170162a872b6f293f4f/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8c96d8b43ac064c8a56757cbadba4b288fed8b67/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="023ee503b631f69511e335a061ea008f8da60f40">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/support-annotations-26.0.0-alpha1_0c9018b67b2258f71279c465ade67b9680fe04e9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/62fdd3d3cc73278463742419988ba0629aa6c909/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_dc4e65191e081084f6401fb13317113fc088d5ca.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/ceb383af14546c2b3cf34236cc89d7793710f2ca/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
-        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_27e29847caedb66d3f8170747288f83dfec63e70.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/5bbd7eeac4d4ee817b90dc8305913b9a921c2fbb/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.1"
+        revision="26.0.2"
         sha1="9935891f23923f39d002087085d9696568a9f657">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_7b37b88d4c38d4e2826281e5df37a88d133dd935.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="023ee503b631f69511e335a061ea008f8da60f40">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-26.0.0-alpha1_0c9018b67b2258f71279c465ade67b9680fe04e9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/62fdd3d3cc73278463742419988ba0629aa6c909/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dc4e65191e081084f6401fb13317113fc088d5ca/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="55b6387d99bb0fa5053e3f8d4492f869af90f621">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a00e60fb9dc24869849c7acf15ba4142d9756b7d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/5bbd7eeac4d4ee817b90dc8305913b9a921c2fbb/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="9935891f23923f39d002087085d9696568a9f657">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_7b37b88d4c38d4e2826281e5df37a88d133dd935/classes.dex" />
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\6.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/cf9d2b2144d4bbce54e912cb8d71c33c1c04d5dc/output/jars/classes.jar"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\b8338bbe7c8e818ccf7f159c7d6019f3\jars\classes.jar"
         jumboMode="false"
+        min-sdk-version="15"
         optimize="true"
-        revision="25.0.1"
-        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_c84b74d848c9ba21f55ab82420c397356292f298.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/3d7409f91b2da965f8bbd2fdeddde975fbf1125a/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="952944218ecedea1554a513dec0c14d570642843">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_693e8648653d16de3771d17b0cf727815b94a236/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/ceb383af14546c2b3cf34236cc89d7793710f2ca/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
+        revision="26.0.2"
         sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_27e29847caedb66d3f8170747288f83dfec63e70/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e95ef2cecf18db6a0a6897d19e485f6e2edc0d8f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/cf9d2b2144d4bbce54e912cb8d71c33c1c04d5dc/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c84b74d848c9ba21f55ab82420c397356292f298/classes.dex" />
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\10.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/3d7409f91b2da965f8bbd2fdeddde975fbf1125a/output/jars/classes.jar"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-alpha1.aar\55d9d8b13172540ed7b4570a9f95ab30\jars\classes.jar"
         jumboMode="false"
+        min-sdk-version="15"
         optimize="true"
-        revision="25.0.1"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\b506f876d1606ada47f897ceb4f022f9\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
         sha1="952944218ecedea1554a513dec0c14d570642843">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_693e8648653d16de3771d17b0cf727815b94a236.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/723280c2239dd33844fa1891fd513d2d1b722a73/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5f2ad45329d3b5efe9d248565dd0113475158b80/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Benjamin/.android/build-cache/c5c46078d3ecc40205ae1b73ce69f229950451c5/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fac3006371273a1b5d8f2dd0d92a59149a539ffe/classes.dex" />
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\4.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Benjamin/.android/build-cache/723280c2239dd33844fa1891fd513d2d1b722a73/output/jars/classes.jar"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\7a54890af82354e6182bc92e5ee15557\jars\classes.jar"
         jumboMode="false"
+        min-sdk-version="15"
         optimize="true"
-        revision="25.0.1"
+        revision="26.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-alpha1.aar\460856de4a4640849bb603cf098b1dd6\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\26.0.0-alpha1\support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-alpha1.aar\f325b408512591ca8e0bb02165b9c41d\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\d6209db6fa8eb910858bdc59cd096baa\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\b9f837b33ceeafb6a684b9571fccc57a\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Benjamin Adacis\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-alpha1.aar\48d7aa816e99c810f41df31931d4a4f6\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
         sha1="2e92aa0163544a804a0b34f169ca61801770839a">
-        <dex dex="/Users/Benjamin/AndroidStudioProjects/IA/app/build/intermediates/pre-dexed/release/classes_5f2ad45329d3b5efe9d248565dd0113475158b80.jar" />
+        <dex dex="C:\Users\Benjamin Adacis\Documents\GitHub\smstoirc\app\build\intermediates\transforms\preDex\release\8.jar" />
     </item>
 
 </items>

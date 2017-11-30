@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             t.deconnexion();
             col.remove(t);
         }
+
         Button button = (Button) findViewById(R.id.Launch);
         button.setText("Start");
     }

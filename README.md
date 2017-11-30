@@ -1,4 +1,4 @@
-    Cette application sert à envoyer et recevoir vos SMS depuis ordinateur. 
+# Cette application sert à envoyer et recevoir vos SMS depuis ordinateur. 
  
  Les avantages sont multiples :
  - Cela permet pour les personnes moins alaises avec les claviers des téléphones portables d'avoir un clavier physique.
@@ -14,11 +14,11 @@ Une page internet vous permet d'accéder à vos conversations.
 Vous pouvez vous envoyez un texto à vous même pour tester le fonctionnement de l'application.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
-    Pour les développeur : 
+# Pour les développeur : 
 
 L'application passe par un serveur IRC, l'interface web fournie et l'application sont pré-configurées pour un serveur IRC, mais vous pouvez utiliser votre propre serveur y compris sur l'interface WEB.
 
-    Le processus : 
+# Le processus : 
 
 L'application reçoit un SMS démarre un thread applicatif qui se connecte au serveur IRC avec un pseudo aléatoire pour ne pas corrompre l'identité de vos contacts. Elle envoie en suite un SMS en conversation privé vers le pseudo que vous avez définit
 
@@ -27,7 +27,7 @@ L'application analyse ensuite les messages qu'elle reçoit sur cette connexion s
 Application codé en API 26 retro compatible jusqu'à api 15 à priori.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
-    Information IMPORTANTE /!\ : 
+# Information IMPORTANTE /!\ : 
 
 - Vous devez d'abord vous connecter à IRC pour vérifier que le pseudo que vous allez utiliser est libre.
 - Vous devez enregistrer votre pseudo avec authentification pour éviter de vous faire usurper.
@@ -41,11 +41,11 @@ Application codé en API 26 retro compatible jusqu'à api 15 à priori.
 - L'accès à vos SMS.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-    Bug identifié : 
+# Bug identifié : 
 
 - On ne reçoit pas les messages d'un contact qui n'est pas dans notre liste de contact (numéro de téléphone).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-Git HUB
+# Git HUB
 
 https://github.com/juxorevo/smstoirc

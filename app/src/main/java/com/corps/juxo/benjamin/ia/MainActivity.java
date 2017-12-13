@@ -2,10 +2,16 @@ package com.corps.juxo.benjamin.ia;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Telephony;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -24,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public static String pseudoTo = "";
     public static MainActivity me;
     public static ContentResolver cr;
+    private static final int DEF_SMS_REQ = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                                                             Manifest.permission.BROADCAST_SMS,
                                                             Manifest.permission.SEND_SMS,
                                                             Manifest.permission.READ_SMS
-                                                }, MY_PERMISSIONS_REQUEST_MULTIPLE);
+                                                },MY_PERMISSIONS_REQUEST_MULTIPLE);
       }
 
     /**
@@ -88,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         Collection<ThreadServer> col = ThreadServer.listThreadServer.values();
         for (ThreadServer t : col) {
             t.deconnexion();
-            col.remove(t);
         }
 
         Button button = (Button) findViewById(R.id.Launch);

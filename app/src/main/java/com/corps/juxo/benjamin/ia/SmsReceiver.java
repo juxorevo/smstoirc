@@ -79,8 +79,7 @@ public class SmsReceiver  extends BroadcastReceiver {
     }
 
     private void startThread(String NameContact, String msg, String phoneNumber){
-        ThreadServer t;
-        t = ThreadServer.listThreadServer.get(NameContact);
+        ThreadServer t = ThreadServer.listThreadServer.get(NameContact);
         if(t == null){
             t = new ThreadServer(   MainActivity.me.getHost_server(),
                                     MainActivity.me.getPort(),

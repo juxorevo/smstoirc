@@ -2,14 +2,17 @@ package com.corps.juxo.benjamin.ia;
 
 import android.content.ContentValues;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Telephony;
 import android.telephony.SmsManager;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -109,7 +112,7 @@ public class ThreadServer extends Thread {
             }
 
             sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " " + firstMsg);
-            waitAuthentication();
+            listenerMessageIrc();
             sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " Socket Close");
             //System.out.println("fin du socket");
         } catch (Exception e) {
@@ -117,20 +120,20 @@ public class ThreadServer extends Thread {
         }
     }
 
-    public void waitAuthentication() {
+    public void listenerMessageIrc() {
         try {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
                 if (line.contains("PING")) {
                     sendIRC("PONG");
-                    //System.out.println("PONG");
+                    System.out.println("PONG");
                 } else if (line.contains("name?")) {
                     sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " The name of the contact is :" + name);
                 } else if (line.contains("PRIVMSG")) {
                     sendSMS(line);
                 } else if (line.indexOf("433") >= 0) {
-                    //System.out.println("Nickname is already in use.");
+                    System.out.println("Nickname is already in use.");
                     return;
                 }
             }
@@ -180,16 +183,10 @@ public class ThreadServer extends Thread {
                     } else {
                         smsManager.sendTextMessage(phoneNumber, null, finalmsg, null, null);
                     }
-
-                    ContentValues values = new ContentValues();
-                    values.put("address", phoneNumber);//sender name
-                    values.put("body", finalmsg);
-                    MainActivity.cr.insert(Uri.parse("content://sms/inbox"), values);
                     sendIRC("PRIVMSG "
                             + MainActivity.me.getPseudoTo()
                             + " Sms bien envoyé");
                 } catch (Exception e) {
-                    //System.out.println("Exception: "+e);
 
                 }
             }
@@ -199,6 +196,7 @@ public class ThreadServer extends Thread {
 
     public synchronized void deconnexion() {
         try {
+
             sendIRC("PRIVMSG "
                     + MainActivity.me.getPseudoTo()
                     + " Fermeture de la connexion");
@@ -206,6 +204,10 @@ public class ThreadServer extends Thread {
             mySocket.close();
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Le thread a bien planté");
+        }finally {
+            listThreadServer.remove(this.name);
+            System.out.println("Le thread a bien été retiré de la liste");
         }
     }
 

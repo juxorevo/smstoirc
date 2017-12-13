@@ -7,4 +7,5 @@
     <string name="host_text">irc.root-me.org</string>
     <string name="port_text">6697</string>
     <string name="checkbox_text">ssl ?</string>
+    <string name="dev_String">Juxo</string>
 </resources>

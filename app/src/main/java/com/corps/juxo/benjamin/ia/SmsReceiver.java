@@ -1,10 +1,16 @@
 package com.corps.juxo.benjamin.ia;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.telephony.SmsMessage;
+
+import java.util.Calendar;
 
 
 public class SmsReceiver  extends BroadcastReceiver {
@@ -24,12 +30,65 @@ public class SmsReceiver  extends BroadcastReceiver {
             Bundle bundle;
             bundle = intent.getExtras();
             if (bundle != null) {
-                extractMessage();
+               extractMessage();
             }
         }
     }
 
-    public void extractMessage(){
+    /**
+     * Received SMS
+     * @param message
+     * @param phoneNumber
+     * @param readState
+     */
+    public static void saveSms(String message, String phoneNumber, int readState){
+        ContentValues values = new ContentValues();
+        values.put("address", phoneNumber);
+        values.put("body", message);
+        values.put("read", readState); //"0" for have not read sms and "1" for have read sms
+        values.put("date", Calendar.getInstance().getTime().getTime());
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                Uri uri = Telephony.Sms.Inbox.CONTENT_URI;
+                MainActivity.me.getContentResolver().insert(uri, values);
+            }
+            else {
+                MainActivity.me.getContentResolver().insert(Uri.parse("content://sms/inbox"), values);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * Sent SMS
+     * @param message
+     * @param phoneNumber
+     */
+    public static void saveSms(String message, String phoneNumber){
+        ContentValues values = new ContentValues();
+        values.put("address", phoneNumber);
+        values.put("body", message);
+        values.put("read", 1); //"0" for have not read sms and "1" for have read sms
+        values.put("date", Calendar.getInstance().getTime().getTime());
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                Uri uri = Telephony.Sms.Sent.CONTENT_URI;
+                MainActivity.me.getContentResolver().insert(uri, values);
+            }
+            else {
+                MainActivity.me.getContentResolver().insert(Uri.parse("content://sms/sent"), values);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public String extractMessage(){
         String address = "";
         String contentSMS = "";
         String phoneNumber = "";
@@ -55,10 +114,13 @@ public class SmsReceiver  extends BroadcastReceiver {
                 NameContact = contact.replace(" ", "-");
             }
 
+            saveSms(contentSMS, phoneNumber, 1);
             //Démarrage du thread de connexion à IRC
             startThread(NameContact, contentSMS, phoneNumber);
 
         }
+
+        return contentSMS;
     }
 
     public static SmsMessage[] getMessagesFromIntent(Intent intent) {

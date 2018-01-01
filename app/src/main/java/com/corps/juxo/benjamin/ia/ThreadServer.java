@@ -172,20 +172,25 @@ public class ThreadServer extends Thread {
         Runnable r = new Runnable() {
             public void run() {
                 try {
+
                     SmsManager smsManager = SmsManager.getDefault();
                     int start = msg.indexOf(nickname);
                     int startsplit = start + nickname.length() + 2;
                     String finalmsg = msg.substring(startsplit);
                     int length = finalmsg.length();
+
                     if (length > MAX_SMS_MESSAGE_LENGTH) {
                         ArrayList<String> messageList = smsManager.divideMessage(finalmsg);
                         smsManager.sendMultipartTextMessage(phoneNumber, null, messageList, null, null);
                     } else {
+                        SmsReceiver.saveSms(finalmsg, phoneNumber);
                         smsManager.sendTextMessage(phoneNumber, null, finalmsg, null, null);
                     }
+
                     sendIRC("PRIVMSG "
                             + MainActivity.me.getPseudoTo()
                             + " Sms bien envoyé");
+
                 } catch (Exception e) {
 
                 }

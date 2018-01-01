@@ -37,6 +37,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Default application
+        if(Build.VERSION.SDK_INT > 18) {
+            String defaultSmsApp = Telephony.Sms.getDefaultSmsPackage(getBaseContext());
+            Intent intent = new  Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
+            intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, getBaseContext().getPackageName());
+            startActivity(intent);
+
+            //DEBUG
+           /* Cursor cursor = getContentResolver().query(Telephony.Sms.CONTENT_URI, null, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    String msgData = "";
+                    for(int idx=0;idx<cursor.getColumnCount();idx++)
+                    {
+                        msgData += " " + cursor.getColumnName(idx) + ":" + cursor.getString(idx);
+                    }
+                    System.out.println(msgData);
+                } while (cursor.moveToNext());
+            } else {
+                // empty box, no SMS
+            }*/
+        }
+
         //Instanciation access
         cr = getContentResolver();
         me = this;

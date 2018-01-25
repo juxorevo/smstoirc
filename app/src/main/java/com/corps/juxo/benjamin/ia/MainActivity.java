@@ -11,12 +11,13 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +32,34 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity me;
     public static ContentResolver cr;
     private static final int DEF_SMS_REQ = 0;
+    private String defaultSmsApp="";
+
+
+    /*private void test() {
+        Runnable r = new Runnable() {
+            public void run() {
+                if (Build.VERSION.SDK_INT > 18) {
+                    //DEBUG
+                    Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI, null, null, null, null);
+                   // Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI,
+                   //         new String[]{"_id", "thread_id", "address",
+                   //                 "person", "date", "body"}, null, null, null);
+                    c.moveToLast();
+                    if (c != null && c.moveToFirst()) {
+                        do {
+                            long ids = c.getLong(0);
+                            long threadId = c.getLong(1);
+                            String address = c.getString(2);
+                            Long dateLong = c.getLong(4);
+                            String body = c.getString(5);
+                        } while (c.moveToNext());
+                    }
+
+                }
+            }
+        };
+        new Thread(r).start();
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Default application
         if(Build.VERSION.SDK_INT > 18) {
-            String defaultSmsApp = Telephony.Sms.getDefaultSmsPackage(getBaseContext());
+            defaultSmsApp = Telephony.Sms.getDefaultSmsPackage(getBaseContext());
             Intent intent = new  Intent(Telephony.Sms.Intents.ACTION_CHANGE_DEFAULT);
             intent.putExtra(Telephony.Sms.Intents.EXTRA_PACKAGE_NAME, getBaseContext().getPackageName());
             startActivity(intent);
-
-            //DEBUG
-           /* Cursor cursor = getContentResolver().query(Telephony.Sms.CONTENT_URI, null, null, null, null);
-            if (cursor.moveToFirst()) {
-                do {
-                    String msgData = "";
-                    for(int idx=0;idx<cursor.getColumnCount();idx++)
-                    {
-                        msgData += " " + cursor.getColumnName(idx) + ":" + cursor.getString(idx);
-                    }
-                    System.out.println(msgData);
-                } while (cursor.moveToNext());
-            } else {
-                // empty box, no SMS
-            }*/
         }
 
         //Instanciation access
@@ -106,8 +120,6 @@ public class MainActivity extends AppCompatActivity {
         pseudoTo = textpseudoto.getText().toString();
         EXECUTE = true;
         button.setText("Stop");
-        //System.out.println("Host : " + host_server + " port " + port + " Pseudo : " + pseudoTo);
-
     }
 
     /**
@@ -116,10 +128,12 @@ public class MainActivity extends AppCompatActivity {
     public void shutDown() {
         MainActivity.EXECUTE = false;
         Collection<ThreadServer> col = ThreadServer.listThreadServer.values();
+
         for (ThreadServer t : col) {
             t.deconnexion();
         }
 
+        ThreadServer.listThreadServer = new HashMap<>();
         Button button = (Button) findViewById(R.id.Launch);
         button.setText("Start");
     }
@@ -128,6 +142,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
 
 
     public static String getHost_server() {

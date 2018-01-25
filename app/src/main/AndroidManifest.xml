@@ -22,11 +22,13 @@
                 <data android:scheme="smsto"/>
                 <data android:scheme="mms" />
                 <data android:scheme="mmsto" />
+            </intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+x
         <receiver android:name=".SmsReceiver"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>

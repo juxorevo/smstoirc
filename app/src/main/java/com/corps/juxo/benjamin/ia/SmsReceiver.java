@@ -26,7 +26,7 @@ public class SmsReceiver  extends BroadcastReceiver {
         mIntent = intent;
         String action = intent.getAction();
 
-        if (action.equals(ACTION_RECEIVE_SMS) && MainActivity.EXECUTE) {
+        if (action.equals(ACTION_RECEIVE_SMS)) {
             Bundle bundle;
             bundle = intent.getExtras();
             if (bundle != null) {
@@ -116,7 +116,9 @@ public class SmsReceiver  extends BroadcastReceiver {
 
             saveSms(contentSMS, phoneNumber, 1);
             //Démarrage du thread de connexion à IRC
-            startThread(NameContact, contentSMS, phoneNumber);
+            if(MainActivity.EXECUTE) {
+                startThread(NameContact, contentSMS, phoneNumber);
+            }
 
         }
 

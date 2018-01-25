@@ -30,11 +30,9 @@
         android:id="@+id/pseudoto"
         android:layout_width="297dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="40dp"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/dev_String"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/port" />
@@ -47,6 +45,16 @@
         android:text="@string/pseudo_send_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/port" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="319dp"
+        android:layout_height="187dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Si vous mettez cette application par défaut, vos mms ne seront plus enregistré. Pour que les sms soient enregistrés il faut cliquer sur start. Ne pas oublier de remettre votre application de SMS par défaut à la sortie de l'application."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Launch" />
 
     <EditText
         android:id="@+id/host"
@@ -82,15 +90,5 @@
         app:layout_constraintStart_toEndOf="@+id/port"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="368dp"
-        android:layout_height="334dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Launch" />
 
 </android.support.constraint.ConstraintLayout>

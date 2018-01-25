@@ -201,7 +201,6 @@ public class ThreadServer extends Thread {
 
     public synchronized void deconnexion() {
         try {
-
             sendIRC("PRIVMSG "
                     + MainActivity.me.getPseudoTo()
                     + " Fermeture de la connexion");
@@ -211,7 +210,6 @@ public class ThreadServer extends Thread {
             e.printStackTrace();
             System.out.println("Le thread a bien planté");
         }finally {
-            listThreadServer.remove(this.name);
             System.out.println("Le thread a bien été retiré de la liste");
         }
     }

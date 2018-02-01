@@ -3,6 +3,7 @@ package com.corps.juxo.benjamin.ia;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Request
     private int MY_PERMISSIONS_REQUEST_MULTIPLE = 10;
+    private static final String ACTION_MMS_RECEIVED = "android.provider.Telephony.WAP_PUSH_RECEIVED";
+    private static final String MMS_DATA_TYPE = "application/vnd.wap.mms-message";
 
     //Variable environment
     public static boolean EXECUTE = false;
@@ -33,38 +36,48 @@ public class MainActivity extends AppCompatActivity {
     public static ContentResolver cr;
     private static final int DEF_SMS_REQ = 0;
     private String defaultSmsApp="";
-
+    private MmsReceiver receiverMms;
+    public IntentFilter mmsIntent;
 
     /*private void test() {
-        Runnable r = new Runnable() {
-            public void run() {
                 if (Build.VERSION.SDK_INT > 18) {
                     //DEBUG
                     Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI, null, null, null, null);
                    // Cursor c = getContentResolver().query(Telephony.Sms.CONTENT_URI,
                    //         new String[]{"_id", "thread_id", "address",
                    //                 "person", "date", "body"}, null, null, null);
-                    c.moveToLast();
+
                     if (c != null && c.moveToFirst()) {
                         do {
-                            long ids = c.getLong(0);
+                            if(c.getString(2).contains("+33650064154")){
+                                if(c.getString(12).contains("69")) {
+                                    System.out.println(c.getString(12));
+                                    break;
+                                }
+                            }
+                           /* for (int i = 0 ; i < c.getColumnCount(); i ++
+                                 ) {
+
+                                System.out.println("index : " + i + " - " + c.getColumnName(i)+" : " + c.getString(i));
+                            }*/
+
+                           /* long ids = c.get
                             long threadId = c.getLong(1);
                             String address = c.getString(2);
                             Long dateLong = c.getLong(4);
-                            String body = c.getString(5);
-                        } while (c.moveToNext());
+                            String body = c.getString(5);*/
+                       /* } while (c.moveToNext());
                     }
-
+                    System.out.println("STOP");
                 }
-            }
-        };
-        new Thread(r).start();
     }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startMmsBroadcast();
+        //test();
 
         //Default application
         if(Build.VERSION.SDK_INT > 18) {
@@ -119,6 +132,10 @@ public class MainActivity extends AppCompatActivity {
         port = Integer.valueOf(textport.getText().toString());
         pseudoTo = textpseudoto.getText().toString();
         EXECUTE = true;
+
+        BotMaster b = new BotMaster(host_server, port, "BotMaster", "I'm online Master");
+        b.start();
+
         button.setText("Stop");
     }
 
@@ -141,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        stopMmsBroadcast();
     }
 
     @Override
@@ -148,6 +166,25 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    protected void startMmsBroadcast(){
+        receiverMms = new MmsReceiver();
+        try {
+            mmsIntent = new IntentFilter(ACTION_MMS_RECEIVED);
+            mmsIntent.addDataType(MMS_DATA_TYPE);
+        } catch (IntentFilter.MalformedMimeTypeException e) {
+            e.printStackTrace();
+        }
+        this.registerReceiver(receiverMms,mmsIntent);
+    }
+
+    protected void stopMmsBroadcast(){
+        try {
+            this.unregisterReceiver(receiverMms);
+            receiverMms = null;
+        }catch(IllegalArgumentException e){
+        }
+
+    }
 
 
     public static String getHost_server() {

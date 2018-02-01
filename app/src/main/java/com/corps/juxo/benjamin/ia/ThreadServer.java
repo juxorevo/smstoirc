@@ -25,25 +25,25 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class ThreadServer extends Thread {
 
-    private SSLSocket mySocket;
-    private String host_server;
-    private int port;
-    private String nickname;
-    private String name;
-    private BufferedWriter bwriter;
-    private String firstMsg;
-    private String phoneNumber;
-    private BufferedReader reader;
-    private OutputStreamWriter outputStreamWriter;
-    private final int MAX = 9999;
-    private final int MIN = 1000;
+    protected SSLSocket mySocket;
+    protected String host_server;
+    protected int port;
+    protected String nickname;
+    protected String name;
+    protected BufferedWriter bwriter;
+    protected String firstMsg;
+    protected String phoneNumber;
+    protected BufferedReader reader;
+    protected OutputStreamWriter outputStreamWriter;
+    protected final int MAX = 9999;
+    protected final int MIN = 1000;
 
-    private static int MAX_SMS_MESSAGE_LENGTH = 69;
+    protected static int MAX_SMS_MESSAGE_LENGTH = 69;
 
     public static HashMap<String, ThreadServer> listThreadServer = new HashMap<>();
 
     /**
-     *
+     * constructeur par défaut
      */
     public ThreadServer() {
         super();
@@ -62,16 +62,27 @@ public class ThreadServer extends Thread {
         this.host_server = host_server;
         this.port = port;
         this.name = nomPersonne;
-        this.nickname = "ID" + ((int) (Math.random() * (MAX - MIN)));
+        this.nickname = MainActivity.me.getPseudoTo().toLowerCase()+ "_" + ((int) (Math.random() * (MAX - MIN)));
         this.firstMsg = firstMsg;
         this.phoneNumber = pn;
         listThreadServer.put(nomPersonne, this);
     }
 
+
+
     @Override
     public void run() {
-        super.run();
+        initializeConnexion();
+        try{
+            sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " " + firstMsg);
+            listenerMessageIrc();
+            sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " Socket Close");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    protected void initializeConnexion(){
         try {
             //Initialisation
             SSLSocketFactory factoryssl = HttpsURLConnection.getDefaultSSLSocketFactory();
@@ -97,8 +108,9 @@ public class ThreadServer extends Thread {
 
             sendIRC("NICK " + nickname);
             sendIRC("USER " + nickname + " 8 * : IA Application Android \r\n");
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println(line);
                 if (line.indexOf("004") >= 0) {
                     sendIRC("PRIVMSG "
                             + MainActivity.me.getPseudoTo()
@@ -106,15 +118,12 @@ public class ThreadServer extends Thread {
                             + name);
                     break;
                 } else if (line.indexOf("433") >= 0) {
-                    mySocket.close();
+                    nickname = nickname + "_1";
+                    sendIRC("NICK " + nickname);
+                    sendIRC("USER " + nickname + " 8 * : IA Application Android \r\n");
                     return;
                 }
             }
-
-            sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " " + firstMsg);
-            listenerMessageIrc();
-            sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " Socket Close");
-            //System.out.println("fin du socket");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,16 +134,15 @@ public class ThreadServer extends Thread {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
-                if (line.contains("PING")) {
+                if (line.contains("PING :")) {
                     sendIRC("PONG");
                     System.out.println("PONG");
-                } else if (line.contains("name?")) {
+                } else if (line.contains("name?")&& line.toLowerCase().contains(MainActivity.me.getPseudoTo().toLowerCase())) {
                     sendIRC("PRIVMSG " + MainActivity.me.getPseudoTo() + " The name of the contact is :" + name);
-                } else if (line.contains("PRIVMSG")) {
+                } else if (line.contains("PRIVMSG") && line.toLowerCase().contains(MainActivity.me.getPseudoTo().toLowerCase())) {
                     sendSMS(line);
-                } else if (line.indexOf("433") >= 0) {
-                    System.out.println("Nickname is already in use.");
-                    return;
+                } else{
+                    System.out.println("Nothing to do");
                 }
             }
         } catch (Exception e) {

@@ -26,11 +26,12 @@ public class MmsReceiver extends BroadcastReceiver {
         mIntent = intent;
         String action = intent.getAction();
         String type = intent.getType();
+        System.out.println("MMS RECU");
         if(action.equals(ACTION_MMS_RECEIVED) && type.equals(MMS_DATA_TYPE)){
             Bundle bundle;
             bundle = intent.getExtras();
             if (bundle != null) {
-                System.out.println(extractMessage());
+              //  System.out.println(extractMessage());
             }
         }
 

@@ -34,4 +34,31 @@ public class ContactPhone {
         return contactName;
     }
 
+    public String getPhoneNumberByContactName(String contactName){
+        ContentResolver cr = context.getContentResolver();
+        String selection = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " LIKE ?";
+        String[] selectionArguments = { "%"+contactName+"%" };
+        Cursor c = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER}, selection, selectionArguments, null);
+        String result = "Res : ";
+        if (c != null && c.moveToFirst()) {
+            do {
+                try {
+                        for(int i = 0; i < c.getColumnCount(); i++) {
+                            result += "id: " + i +", "+c.getString(i) + " ";
+                        }
+                        result += " ; ";
+
+                }catch(IllegalArgumentException e){
+
+                }
+            }while (c.moveToNext());
+        }
+
+        if(c != null && !c.isClosed()) {
+            c.close();
+        }
+
+        return result;
+    }
+
 }

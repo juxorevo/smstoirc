@@ -122,6 +122,10 @@ public class ThreadServer extends Thread {
                     sendIRC("NICK " + nickname);
                     sendIRC("USER " + nickname + " 8 * : IA Application Android \r\n");
                     return;
+                } else if (line.indexOf("ERROR") >= 0){
+                    BotMaster.me.sendIRC("Un sms vous a été envoyé mais la connexion à IRC a échoué");
+                    this.deconnexion();
+                    listThreadServer.remove(this.name);
                 }
             }
         } catch (Exception e) {
@@ -142,7 +146,7 @@ public class ThreadServer extends Thread {
                 } else if (line.contains("PRIVMSG") && line.toLowerCase().contains(MainActivity.me.getPseudoTo().toLowerCase())) {
                     sendSMS(line);
                 } else{
-                    System.out.println("Nothing to do");
+                    //System.out.println("Nothing to do");
                 }
             }
         } catch (Exception e) {

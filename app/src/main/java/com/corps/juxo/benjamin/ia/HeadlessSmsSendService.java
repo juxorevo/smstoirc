@@ -42,12 +42,11 @@ public class HeadlessSmsSendService extends IntentService {
         Uri intentUri = intent.getData();
         String recipients = getRecipients(intentUri);
 
-        // 宛先がなければ終了
         if (TextUtils.isEmpty(recipients)) {
             return;
         }
 
-        // メッセージがなければ終了
+
         if (TextUtils.isEmpty(message)) {
             return;
         }

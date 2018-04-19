@@ -33,6 +33,7 @@ public class MmsReceiver extends BroadcastReceiver {
             if (bundle != null) {
               //  System.out.println(extractMessage());
             }
+            BotMaster.me.sendIRC("Mms reçu");
         }
 
     }

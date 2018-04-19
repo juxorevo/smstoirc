@@ -2,15 +2,8 @@ package com.corps.juxo.benjamin.ia;
 
 import android.telephony.SmsManager;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
 
 /**
  * Created by Benjamin Adacis on 01/02/2018.
@@ -18,13 +11,17 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class BotMaster extends ThreadServer {
 
+    public static BotMaster me;
+
     public BotMaster(){
         super();
+        BotMaster.me = this;
     }
 
     public BotMaster(String host_server, int port, String nomPersonne, String pn) {
         super(host_server, port, nomPersonne, "I'm online Master, what can I do for you ?", pn);
         this.nickname = MainActivity.me.getPseudoTo().toLowerCase()+ "_" + nomPersonne;
+        BotMaster.me = this;
         listThreadServer.put(nomPersonne, this);
     }
 
@@ -66,6 +63,7 @@ public class BotMaster extends ThreadServer {
                 }
             }
         } catch (Exception e) {
+            System.out.println("ici");
             e.printStackTrace();
         }
     }

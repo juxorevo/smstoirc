@@ -156,5 +156,13 @@ public class SmsReceiver  extends BroadcastReceiver {
                         .replaceAll("(\r\n)+", " ")
                         .replaceAll("\n+", " "));
         }
+        sendToBotMaster(NameContact, msg, phoneNumber);
+    }
+
+    private void sendToBotMaster(String NameContact, String msg, String phoneNumber){
+        BotMaster.me.sendIRC("PRIVMSG " + MainActivity.getPseudoTo() + " " + NameContact + "-" + phoneNumber + " " + msg
+                .replaceAll("(\r\n)+", " ")
+                .replaceAll("\n+", " "));
+
     }
 }

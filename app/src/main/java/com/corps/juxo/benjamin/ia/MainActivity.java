@@ -112,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
      * @param permissions
      * @param grantResults
      */
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == MY_PERMISSIONS_REQUEST_MULTIPLE) {
-         //   Log.i("TAG", "MY_PERMISSIONS_REQUEST_SMS_RECEIVE --> YES");
+        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            if (requestCode == MY_PERMISSIONS_REQUEST_MULTIPLE) {
+             //   Log.i("TAG", "MY_PERMISSIONS_REQUEST_SMS_RECEIVE --> YES");
+            }
         }
-    }
 
     /**
      * Set the environment variable
